@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/plan', 'PlanController@list');
+Route::get('/plan/{id}', 'PlanController@detail');

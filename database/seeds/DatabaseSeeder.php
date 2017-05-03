@@ -9,8 +9,13 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
+    public function run() {
+        $this->call('PlanTableSeeder');
     }
+}
+
+class PlanTableSeeder extends Seeder {
+  public function run() {
+   DB::insert('insert into plans (name, description) values (?,?)', array('Sqls Inconsistentes', 'Side by Side com gelo na porta'));
+  }
 }
