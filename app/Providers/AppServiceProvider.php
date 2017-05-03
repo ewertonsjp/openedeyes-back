@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace openedeyes\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
