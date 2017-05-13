@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/plan', 'PlanController@list');
 Route::get('/plan/{id}', 'PlanController@detail');
+
+Route::get('/indicator/{id}', 'IndicatorController@detail');
+Route::post('/indicator/{id}/measure', 'IndicatorController@measure');

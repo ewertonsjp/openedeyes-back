@@ -8,13 +8,14 @@ use openedeyes\Plan;
 class PlanController extends Controller {
 
   public function list() {
+    //TODO Sem indicators
     $plans = Plan::all();
     $response = response()->json($plans);
     return $response;
   }
 
   public function detail($id) {
-    $plan = Plan::find($id);
+    $plan = Plan::with('indicators')->find($id);
     $response = response()->json($plan);
     return $response;
   }
