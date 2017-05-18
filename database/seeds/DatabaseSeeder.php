@@ -37,9 +37,9 @@ class IndicatorTableSeeder extends Seeder {
 
 class MeasureTableSeeder extends Seeder {
   public function run() {
-   DB::insert('insert into measures (value, indicator_id) values (?,?)', array(3, 1));
-   DB::insert('insert into measures (value, indicator_id) values (?,?)', array(5, 1));
-   DB::insert('insert into measures (value, indicator_id) values (?,?)', array(5, 2));
-   DB::insert('insert into measures (value, indicator_id) values (?,?)', array(3, 2));
+   DB::insert('insert into measures (value, assembled_at, indicator_id) values (?,?,?)', array(3, date("Y-m-d",strtotime("2017-05-15")), 1));
+   DB::insert('insert into measures (value, assembled_at, indicator_id) values (?,?,?)', array(5, date("Y-m-d",strtotime("2017-05-16")), 1));
+   DB::insert('insert into measures (value, assembled_at, indicator_id) values (?,?,?)', array(5, date("Y-m-d",strtotime("2017-05-17")), 2));
+   DB::insert('insert into measures (value, assembled_at, indicator_id) values (?,?,?)', array(3, date("Y-m-d",strtotime("2017-05-18")), 2));
   }
 }

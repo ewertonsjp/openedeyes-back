@@ -15,7 +15,7 @@ class CreateMeasuresTable extends Migration
     {
         Schema::create('measures', function (Blueprint $table) {
             $table->increments('id');
-            //TODO $table->datetime('date');
+            $table->date('assembled_at')->default(date("Y-m-d H:i:s"));
             $table->integer('value');
             $table->integer('indicator_id');
             $table->timestamps();
