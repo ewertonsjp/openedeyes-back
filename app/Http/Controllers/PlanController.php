@@ -15,7 +15,7 @@ class PlanController extends Controller {
   }
 
   public function detail($id) {
-    $plan = Plan::with('indicators')->find($id);
+    $plan = Plan::with('groups')->find($id);
     $response = response()->json($plan);
     return $response;
   }
