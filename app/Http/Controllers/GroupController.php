@@ -4,6 +4,7 @@ namespace openedeyes\Http\Controllers;
 
 use Illuminate\Http\Request;
 use openedeyes\Group;
+use openedeyes\Measure;
 
 class GroupController extends Controller {
 
@@ -18,7 +19,17 @@ class GroupController extends Controller {
   }
 
   public function measure(Request $request, $id) {
-    return;
+    $group = Group::find($id);
+    $values = json_decode($request->getContent());
+
+    foreach ($values->measures as $m) {
+      $measure = new Measure();
+      $measure['indicator_id'] = $m->indicator_id;
+      $measure['value'] = $m->value;
+      $measure->save();
+    }
+
+    return "SUCESS";
   }
 
 }
