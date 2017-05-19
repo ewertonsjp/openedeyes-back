@@ -176,6 +176,7 @@ return [
         // openedeyes\Providers\BroadcastServiceProvider::class,
         openedeyes\Providers\EventServiceProvider::class,
         openedeyes\Providers\RouteServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
