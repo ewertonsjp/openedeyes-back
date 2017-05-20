@@ -26,6 +26,7 @@ class GroupController extends Controller {
       $measure = new Measure();
       $measure['indicator_id'] = $m->indicator_id;
       $measure['value'] = $m->value;
+      $measure['assembled_at'] = date('YYYY-MM-DD',$m->date);
       $measure->save();
     }
 
