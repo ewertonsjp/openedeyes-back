@@ -5,6 +5,8 @@ namespace openedeyes\Http\Controllers;
 use Illuminate\Http\Request;
 use openedeyes\Group;
 use openedeyes\Measure;
+use openedeyes\Indicator;
+use openedeyes\Plan;
 
 class GroupController extends Controller {
 
@@ -31,6 +33,29 @@ class GroupController extends Controller {
     }
 
     return "SUCESS";
+  }
+
+  public function add(Request $request) {
+    $_json = json_decode($request->getContent());
+    $_group = $_json->group;
+
+    $group = new Group();
+    $group->name = $_group->name;
+    $group->type = $_group->type;
+    //FIXME
+    $group->plan_id = $_json->planId;
+    $group->save();
+
+    foreach ($_group->indicators as $_ind) {
+      $indicator = new Indicator();
+      $indicator->name = $_ind->name;
+      //FIXME
+      $indicator->group_id = $group->id;
+      $indicator->save();
+    }
+
+    $response = response()->json($group);
+    return $response;
   }
 
 }
