@@ -58,4 +58,30 @@ class GroupController extends Controller {
     return $response;
   }
 
+  public function edit(Request $request) {
+    $jsonObj = json_decode($request->getContent());
+    $_group = $jsonObj->group;
+
+    foreach ($_group->indicators as $_ind) {
+      $indicator;
+      if (isset($_ind->id) && !empty($_ind->id)) {
+        $indicator = Indicator::find($_ind->id);
+      } else {
+        $indicator = new Indicator();
+        $indicator->group_id = $_group->id;
+      }
+
+      $indicator->name = $_ind->name;
+      $indicator->save();
+    }
+
+    $group = Group::find($_group->id);
+    $group->name = $_group->name;
+    $group->type = $_group->type;
+    $group->save();
+
+    $response = response()->json($group);
+    return $response;
+  }
+
 }

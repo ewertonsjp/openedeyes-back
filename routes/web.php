@@ -21,6 +21,7 @@ Route::get('/plan/{id}', 'PlanController@detail');
 Route::get('/group/{id}', 'GroupController@detail');
 Route::post('/group', 'GroupController@add');
 Route::post('/group/{id}/measure', 'GroupController@measure');
+Route::post('/group/{id}/edit', 'GroupController@edit');
 
 Route::get('/indicator/{id}', 'IndicatorController@detail');
 Route::post('/indicator/{id}/measure', 'IndicatorController@measure');
