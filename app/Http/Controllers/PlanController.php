@@ -20,4 +20,17 @@ class PlanController extends Controller {
     return $response;
   }
 
+  public function add(Request $request) {
+    $_json = json_decode($request->getContent());
+    $_plan = $_json->plan;
+
+    $plan = new Plan();
+    $plan->name = $_plan->name;
+    $plan->description = $_plan->description;
+    $plan->save();
+
+    $response = response()->json($plan);
+    return $response;
+  }
+
 }

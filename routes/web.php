@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/plan', 'PlanController@list');
 Route::get('/plan/{id}', 'PlanController@detail');
+Route::post('/plan', 'PlanController@add');
 
 Route::get('/group/{id}', 'GroupController@detail');
 Route::post('/group', 'GroupController@add');
