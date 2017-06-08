@@ -84,4 +84,11 @@ class GroupController extends Controller {
     return $response;
   }
 
+  public function delete($id) {
+    $group = Group::find($id);
+    $group->delete();
+    $response = response()->json($group);
+    return $response;
+  }
+
 }
